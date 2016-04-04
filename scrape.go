@@ -17,6 +17,7 @@ func main() {
 	}
 	defer db.Close()
 
+	// Prepare the insert statement to for use later in the program
 	stmt, err := db.Prepare("INSERT INTO Post VALUES (NULL, ?, ?, ?, ?, ?)")
 	if err != nil {
 		log.Fatal(err)
@@ -47,7 +48,7 @@ func main() {
 		date := s.Find(".ba_publication_date").Text()
 		summary := s.Find(".ba_summary P").Text()
 
-		// insert the post into the database
+		// insert the post into the database using the prepared statement
 		_, err := stmt.Exec(author, title, date, link, summary)
 		if err != nil {
 			log.Fatal(err)
@@ -55,5 +56,4 @@ func main() {
 	})
 
 	fmt.Println("Completed import")
-
 }

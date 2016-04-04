@@ -110,9 +110,13 @@ func main() {
 		fmt.Printf("%d | %s | %s\n", id, author, title)
 	}
 
+	/*
+	 It's possible for errors to occur and kick us out of the loop above. We need to check this explicitly at the end
+	 of the loop to ensure that we didn't exit prematurely on an error condition.
+	 */
 	err = rows.Err()
 	if err != nil {
-		log.fatal(err)
+		log.Fatal(err)
 	}
 
 }
