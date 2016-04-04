@@ -4,7 +4,16 @@
 The examples included in this repo introduce the basic concepts of reading and writing to a SQLite3 database before combining these concepts into a  simple _screen scraper_ that grabs posts from the Vertabelo bog and loads into our database.
 
 ## Setup
-Prior to running the examples, you will need to run the included script to create tables. You can do this from the commandline `sqlite3 blog.db < create.sql` or from within the SQLite3 shell using `.open` to load/create the database file and `.read` to execute the commands in the .sql file.
+Prior to running the examples, you will need to run the included script to create tables and import external Go modules.
+
+```
+go get github.com/mattn/go-sqlite3
+go get github.com/PuerkitoBio/goquery
+sqlite3 blog.db < create.sql
+```
+
+
+Alternatively, you can create the tables from within the SQLite3 shell using `.open` to load/create the database file and `.read` to execute the commands in the .sql file.
 
 A similarly named `drop.sql` is also included to remove the tables from the database, though you might find it just as easy to delete the file itself and recreate.
 
