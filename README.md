@@ -22,7 +22,7 @@ Go examples can easily be run from the command line or through your IDE. From th
 
 Since Go is a compiled language, it\'s also likely that we\'ll want to build in one step so that we can run the program natively. If a program excepts command line arguments, this is going to be the best strategy for testing (and you may find it easier to do from the terminal). Here\'s an example using insert.go, which inserts a row into the database based on our commandline arguments (careful ... we don\'t have any error checking):
 ```
-> go build insert.go
-> ./insert author title 2016-04-03 http://test.com "summary text"
+go build insert.go
+./insert author title 2016-04-03 http://test.com "summary text"
 ```
 The _./_ syntax is specific to *nix. Go on Windows compiles the program into the _.exe_ format natively such that you can just run `insert` followed by the proper arguments.
